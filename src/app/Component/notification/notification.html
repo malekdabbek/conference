@@ -1,0 +1,18 @@
+<div class="card">
+  <h3> Zone de notification</h3>
+  <p>Vous avez {{ notifications.length }} notifications</p>
+
+  <button class="btn" (click)="showNotifications()">
+    {{ show ? 'Masquer les notifications' : 'Afficher les notifications' }}
+  </button>
+
+  @if (show) {
+    <ul class="list">
+      @for (notification of notifications; track notification.id) {
+        <li>{{ notification.message }}</li>
+      } @empty {
+        <li>Aucune notification.</li>
+      }
+    </ul>
+  }
+</div>
