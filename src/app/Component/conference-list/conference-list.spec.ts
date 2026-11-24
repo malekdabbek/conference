@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListConf } from './list-conf';
+import { ConferenceList } from './conference-list';
 
-describe('ListConf', () => {
-  let component: ListConf;
-  let fixture: ComponentFixture<ListConf>;
+describe('ConferenceList', () => {
+  let component: ConferenceList;
+  let fixture: ComponentFixture<ConferenceList>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListConf],
+      imports: [ConferenceList],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ListConf);
+    fixture = TestBed.createComponent(ConferenceList);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

@@ -1,11 +1,6 @@
-.card p {
-  color: #6b7280;
-  margin: 6px 0 12px;
-}
-
 .btn {
   border: none;
-  background: #2563eb;
+  background: #f59e0b;
   color: #fff;
   padding: 8px 16px;
   border-radius: 8px;
@@ -15,7 +10,7 @@
 }
 
 .btn:hover {
-  background: #1d4ed8;
+  background: #d98a06;
 }
 
 .list {
@@ -25,9 +20,9 @@
 }
 
 .list li {
-  background: #eaf1fe;
-  border-left: 4px solid #2563eb;
-  padding: 8px 10px;
+  background: #fef3d7;
+  border-left: 4px solid #f59e0b;
+  padding: 8px 12px;
   margin: 8px 0;
   border-radius: 6px;
   font-size: 0.9rem;

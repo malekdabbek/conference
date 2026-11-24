@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.css',
 })
 export class Navbar {
-  list: string[] = ['Accueil', 'Conférences', 'Amis', 'Profil', 'Notifications', 'Admin'];
+  list: string[] = ['Accueil', 'Profil', 'Conférences', 'Amis', 'Notifications', 'Admin'];
+  selected: string = 'Accueil';
+
+  select(item: string) {
+    this.selected = item;
+  }
 }

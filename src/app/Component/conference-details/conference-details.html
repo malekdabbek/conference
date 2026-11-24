@@ -1,0 +1,32 @@
+@if (conference) {
+
+  <section class="details-card">
+
+    <div class="details-header">
+
+      <div class="icon">🎤</div>
+
+      <div>
+        <h2>Détail de la conférence</h2>
+        <p class="badge">Conférence sélectionnée depuis la liste.</p>
+      </div>
+
+    </div>
+
+    <p><strong>Titre :</strong> {{ conference.title }}</p>
+    <p><strong>Description :</strong> {{ conference.description }}</p>
+    <p><strong>Lieu :</strong> {{ conference.place }}</p>
+    <p><strong>Date :</strong> {{ conference.date }}</p>
+    <p><strong>Places disponibles :</strong> {{ remainingPlaces() }}</p>
+
+    <button
+      class="btn"
+      [disabled]="remainingPlaces() === 0"
+      (click)="register()"
+    >
+      S'inscrire
+    </button>
+
+  </section>
+
+}

@@ -1,0 +1,102 @@
+<section class="list-card">
+
+  <!-- En-tête -->
+  <div class="list-header">
+
+    <div class="icon">📅</div>
+
+    <div>
+      <h2>Liste des conférences à venir</h2>
+      <p class="subtitle">
+        Cliquez sur une conférence pour afficher ses détails.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Vérifier si la liste est vide -->
+  @if (conferences.length === 0) {
+
+    <p class="empty">
+      Aucune conférence n'est enregistrée pour le moment.
+    </p>
+
+  } @else {
+
+    <!-- Barre de recherche -->
+    <input
+      class="search"
+      type="text"
+      placeholder="Taper le titre de la conférence"
+      [(ngModel)]="searchText"
+    />
+
+    <!-- Affichage des conférences -->
+    <div class="grid">
+
+      @for (conf of filteredConferences; track conf.id) {
+
+        <article
+          class="conf-card"
+          [class.selected]="selectedConference?.id === conf.id"
+          (click)="selectConference(conf)"
+        >
+
+          <!-- Titre en majuscules -->
+          <h3>{{ conf.title | uppercase }}</h3>
+
+          <!-- Date formatée -->
+          <p>
+            <strong>Date :</strong>
+            {{ conf.date | date:'dd/MM/yyyy' }}
+          </p>
+
+          <p>
+            <strong>Lieu :</strong>
+            {{ conf.place }}
+          </p>
+
+          <!-- Places restantes -->
+          <p>
+            <strong>Places restantes :</strong>
+            {{ remainingPlaces(conf) }}
+          </p>
+
+          <!-- Bouton inscription -->
+          <button
+            class="btn"
+            [ngClass]="{
+              'btn-green': remainingPlaces(conf) >= 10,
+              'btn-orange': remainingPlaces(conf) > 0 && remainingPlaces(conf) < 10,
+              'btn-red': remainingPlaces(conf) === 0
+            }"
+            [disabled]="remainingPlaces(conf) === 0"
+            (click)="$event.stopPropagation(); inscrire(conf)"
+          >
+            S'inscrire
+          </button>
+
+        </article>
+
+      } @empty {
+
+        <p class="empty">
+          Aucune conférence ne correspond à votre recherche.
+        </p>
+
+      }
+
+    </div>
+
+        <!-- Composant imbriqué : détail de la conférence sélectionnée -->
+    @if (selectedConference) {
+      <app-conference-details
+        [conference]="selectedConference"
+        (closed)="closeDetails()"
+        (registered)="inscrire($event)"
+      />
+    }
+
+  }
+
+</section>

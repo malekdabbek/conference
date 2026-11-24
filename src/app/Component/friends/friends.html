@@ -1,18 +1,19 @@
-<div class="card">
-  <h3>👥 Amis</h3>
+<div class="card green">
+  <div class="card-icon">👥</div>
+  <div class="card-body">
+    <h3>Liste des amis</h3>
 
-  <div>
     @for (item of friendsList; track item) {
       <div class="row">
         <input type="text" [(ngModel)]="item.name" />
         <input type="text" [(ngModel)]="item.gmail" />
       </div>
     }
-  </div>
 
-  <ul class="friends">
-    @for (item of friendsList; track item) {
-      <li>{{ item.name }} - {{ item.gmail }}</li>
-    }
-  </ul>
+    <ul class="friends">
+      @for (item of friendsList; track item) {
+        <li>{{ item.name }} - {{ item.gmail }}</li>
+      }
+    </ul>
+  </div>
 </div>
